@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Grid</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 1.5rem;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Reflow into a multi-column dashboard on tablets and desktops */
+        @media (min-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .stat-widget {
+                grid-column: span 1;
+            }
+
+            .chart-panel {
+                grid-column: span 3;
+            }
+
+            .side-panel {
+                grid-column: span 1;
+            }
+
+            .table-panel {
+                grid-column: span 4;
+            }
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+        }
+
+        .panel h3 {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .placeholder-content {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border);
+            border-radius: 0.375rem;
+            color: var(--text-dim);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="dashboard-container">
+        <!-- Stat Widgets -->
+        <div class="panel stat-widget">
+            <h3>Active Users</h3>
+            <p class="stat-number">24,520</p>
+        </div>
+
+        <div class="panel stat-widget">
+            <h3>Revenue (MRR)</h3>
+            <p class="stat-number">$18,400</p>
+        </div>
+
+        <div class="panel stat-widget">
+            <h3>Server Uptime</h3>
+            <p class="stat-number">99.98%</p>
+        </div>
+
+        <div class="panel stat-widget">
+            <h3>Pending Tickets</h3>
+            <p class="stat-number">12</p>
+        </div>
+
+        <!-- Main Chart Panel -->
+        <section class="panel chart-panel">
+            <h3>Traffic Analytics Overview</h3>
+            <div class="placeholder-content">
+                <span>[Visual Data Visualization Graph]</span>
+            </div>
+        </section>
+
+        <!-- Side Activity Feed -->
+        <aside class="panel side-panel">
+            <h3>System Events</h3>
+            <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.6;">
+                • Deployment #104 succeeded<br>
+                • Database replica synced<br>
+                • SSL cert refreshed
+            </p>
+        </aside>
+
+        <!-- Full-Width Bottom Table -->
+        <section class="panel table-panel">
+            <h3>Recent Customer Transactions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Plan</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Emma Wilson</td>
+                        <td>Enterprise Tier</td>
+                        <td>$99.00</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Liam Chen</td>
+                        <td>Pro Monthly</td>
+                        <td>$29.00</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+
+</html>

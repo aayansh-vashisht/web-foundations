@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form Styling</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --primary: #4f46e5;
+            --border: #cbd5e1;
+            --border-focus: #4f46e5;
+            --radius: 0.375rem;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .form-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 28rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.375rem;
+        }
+
+        .helper-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Text & Select Input Styling */
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 0.65rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            color: var(--text);
+            background-color: #ffffff;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        /* WCAG AA High-Contrast Focus Visible Ring */
+        input[type="text"]:focus-visible,
+        input[type="email"]:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--border-focus);
+            outline-offset: 2px;
+            border-color: var(--border-focus);
+        }
+
+        /* Accessible Checkbox Wrapper */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 1.15rem;
+            height: 1.15rem;
+            accent-color: var(--primary);
+            /* Native accessible styling */
+            cursor: pointer;
+            margin-top: 0.15rem;
+        }
+
+        .checkbox-group label {
+            font-weight: 400;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #4338ca;
+        }
+
+        .btn-submit:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="form-card">
+        <h1>Create Developer Account</h1>
+        <p class="form-desc">Join our platform and deploy your first project today.</p>
+
+        <form action="/signup" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required aria-describedby="username-help">
+                <p id="username-help" class="helper-text">Only letters, numbers, and dashes allowed.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="user-email">Email Address</label>
+                <input type="email" id="user-email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Experience Level</label>
+                <select id="experience" name="experience" required>
+                    <option value="">Select your level</option>
+                    <option value="beginner">Beginner (0-1 years)</option>
+                    <option value="intermediate">Intermediate (2-4 years)</option>
+                    <option value="advanced">Advanced (5+ years)</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms-agree" name="terms" required>
+                <label for="terms-agree">I accept the terms of service and acknowledge the privacy statement.</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Register Account</button>
+        </form>
+    </main>
+
+</body>
+
+</html>

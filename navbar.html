@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Navigation Bar</title>
+    <style>
+        :root {
+            --nav-bg: #ffffff;
+            --text: #334155;
+            --brand: #6366f1;
+            --brand-hover: #4f46e5;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f8fafc;
+            color: var(--text);
+        }
+
+        .site-header {
+            background: var(--nav-bg);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.875rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brand);
+            text-decoration: none;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.2s ease;
+        }
+
+        /* Animated underline pseudo-element */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--brand);
+            transition: width 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--brand);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:focus-visible {
+            outline: 2px solid var(--brand);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .btn-cta {
+            background: var(--brand);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn-cta:hover {
+            background: var(--brand-hover);
+        }
+
+        .btn-cta:focus-visible {
+            outline: 2px solid var(--brand-hover);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <a href="/" class="brand-logo">DevStream</a>
+
+            <ul class="nav-list">
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#docs" class="nav-link">Docs</a></li>
+            </ul>
+
+            <a href="#get-started" class="btn-cta">Get Started</a>
+        </nav>
+    </header>
+
+</body>
+
+</html>
