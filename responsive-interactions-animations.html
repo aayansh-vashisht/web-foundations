@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - Responsive Queries, Transitions & Animations</title>
+    <style>
+        :root {
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 2rem;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 1. Pseudo-classes & Smooth Transitions */
+        .interactive-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            /* Smoothly interpolate hover changes */
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .interactive-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+
+        .interactive-btn:active {
+            transform: translateY(0);
+        }
+
+        .interactive-btn:focus-visible {
+            outline: 2px solid #818cf8;
+            outline-offset: 3px;
+        }
+
+        /* 2. Pseudo-element (::before icon injection) */
+        .special-card {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #1e293b;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--accent);
+            position: relative;
+        }
+
+        .special-card::before {
+            content: "💡 NOTE";
+            display: block;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #818cf8;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* 3. Keyframe Animations */
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(79, 70, 229, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+
+        .pulse-badge {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 9999px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.875rem;
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* 4. Responsive Media Queries (Mobile-First / Adaptive) */
+        .responsive-panel {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #1e293b;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .responsive-panel {
+                font-size: 1.15rem;
+                padding: 2.5rem;
+                background: #334155;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>CSS Interactions & Responsiveness</h1>
+        <p>Demonstrating pseudo-classes, pseudo-elements, transitions, keyframe animations, and media queries.</p>
+
+        <button type="button" class="interactive-btn">Hover & Focus Me</button>
+
+        <div class="special-card">
+            <p>This box dynamically inserts a badge using the CSS <code>::before</code> pseudo-element.</p>
+        </div>
+
+        <div>
+            <span class="pulse-badge">Live Continuous Keyframe Animation</span>
+        </div>
+
+        <div class="responsive-panel">
+            <p><strong>Media Query Test:</strong> Resize browser window over <code>768px</code> to see background color
+                and font size shift adaptively.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

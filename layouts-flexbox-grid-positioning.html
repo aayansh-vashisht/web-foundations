@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox, CSS Grid & Positioning</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            padding-bottom: 4rem;
+        }
+
+        /* --- 1. FLEXBOX: 1-Dimensional Alignment (Navbar) --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            /* Spreads logo and links to opposite edges */
+            align-items: center;
+            /* Centers items vertically */
+            background: #ffffff;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            /* Positioning: Keeps nav visible on scroll */
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            /* Clean spacing between flex items */
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* --- 2. CSS GRID: 2-Dimensional Layout System --- */
+        .dashboard-grid {
+            display: grid;
+            /* Auto-fit responsive columns: minimum 260px wide, expanding to 1fr */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* --- 3. POSITIONING: Relative Parent with Absolute Child Badge --- */
+        .card {
+            position: relative;
+            /* Anchor for absolute elements inside */
+            background: #ffffff;
+            padding: 2rem 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge {
+            position: absolute;
+            /* Placed exactly relative to .card container */
+            top: 1rem;
+            right: 1rem;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Flexbox Navigation -->
+    <nav class="navbar">
+        <h2>DevApp</h2>
+        <ul class="nav-links">
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+
+    <main id="dashboard">
+        <h1>Layout Demonstrations</h1>
+        <p>Using Flexbox for 1D navigation and CSS Grid with auto-fit for 2D responsive cards.</p>
+
+        <!-- CSS Grid Dashboard -->
+        <div class="dashboard-grid">
+            <article class="card">
+                <span class="badge">Grid Item 1</span>
+                <h3>Performance</h3>
+                <p>Load time is sub-second across all global deployment regions.</p>
+            </article>
+
+            <article class="card">
+                <span class="badge">Grid Item 2</span>
+                <h3>Accessibility</h3>
+                <p>WCAG 2.1 AA compliant semantic elements and screen-reader testing.</p>
+            </article>
+
+            <article class="card">
+                <span class="badge">Grid Item 3</span>
+                <h3>Responsiveness</h3>
+                <p>CSS Grid dynamically reflows columns without hardcoded breakpoint hacks.</p>
+            </article>
+        </div>
+    </main>
+
+</body>
+
+</html>
