@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickStore CLI - Documentation</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>QuickStore CLI Documentation</h1>
+        <p>Version 2.4.0</p>
+        <nav aria-label="Documentation Table of Contents">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#usage">Basic Usage</a></li>
+                <li><a href="#config-options">Configuration Options</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>QuickStore is a lightweight, zero-dependency command line tool designed to synchronize local
+                configuration files with remote storage buckets.</p>
+        </section>
+
+        <section id="installation">
+            <h2>Installation</h2>
+            <p>Install the package globally via your preferred package manager:</p>
+            <pre><code>npm install -g quickstore-cli</code></pre>
+        </section>
+
+        <section id="usage">
+            <h2>Basic Usage</h2>
+            <p>Run the initialization wizard to configure your credentials:</p>
+            <pre><code>quickstore init --profile=default</code></pre>
+            <p>To run a sync job:</p>
+            <pre><code>quickstore sync ./config.json --remote=s3://my-bucket</code></pre>
+        </section>
+
+        <section id="config-options">
+            <h2>Configuration Options</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th scope="col">Flag</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Default</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--profile</code></td>
+                        <td>String</td>
+                        <td><code>"default"</code></td>
+                        <td>The local authentication profile to use.</td>
+                    </tr>
+                    <tr>
+                        <td><code>--dry-run</code></td>
+                        <td>Boolean</td>
+                        <td><code>false</code></td>
+                        <td>Simulates the upload without committing changes.</td>
+                    </tr>
+                    <tr>
+                        <td><code>--verbose</code></td>
+                        <td>Boolean</td>
+                        <td><code>false</code></td>
+                        <td>Prints detailed file transfer logs.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <aside>
+        <h3>Need Help?</h3>
+        <p>Found a bug? Submit an issue on the <a href="https://github.com" target="_blank"
+                rel="noopener noreferrer">QuickStore Issue Tracker</a>.</p>
+    </aside>
+
+    <footer>
+        <p>&copy; 2026 QuickStore Open Source Project.</p>
+    </footer>
+
+</body>
+
+</html>

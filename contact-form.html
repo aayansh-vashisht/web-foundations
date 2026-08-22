@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get In Touch - Contact Us</title>
+</head>
+
+<body>
+
+    <main>
+        <h1>Contact Our Team</h1>
+        <p>Fill out the form below and we will respond within two business days.</p>
+
+        <form action="/submit-inquiry" method="POST">
+
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <div>
+                    <label for="full-name">Full Name <span aria-hidden="true">*</span>:</label><br>
+                    <input type="text" id="full-name" name="name" required placeholder="Your Name">
+                </div>
+                <br>
+                <div>
+                    <label for="email-address">Email Address <span aria-hidden="true">*</span>:</label><br>
+                    <input type="email" id="email-address" name="email" required placeholder="user@example.com">
+                </div>
+                <br>
+                <div>
+                    <label for="phone-number">Phone Number (Optional):</label><br>
+                    <input type="tel" id="phone-number" name="phone" placeholder="+91 926-XXX-XXXX">
+                </div>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Inquiry Details</legend>
+
+                <div>
+                    <label for="department">Department to Contact:</label><br>
+                    <select id="department" name="department" required>
+                        <option value="">-- Please choose an option --</option>
+                        <option value="support">Technical Support</option>
+                        <option value="sales">Sales & Billing</option>
+                        <option value="press">Press & Media</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="message">Your Message <span aria-hidden="true">*</span>:</label><br>
+                    <textarea id="message" name="message" rows="5" cols="40" required
+                        placeholder="Write your inquiry here..."></textarea>
+                </div>
+            </fieldset>
+
+            <br>
+
+            <div>
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="/privacy" target="_blank">privacy policy</a> and processing
+                    of my data.</label>
+            </div>
+
+            <br>
+
+            <button type="submit">Submit Form</button>
+            <button type="reset">Clear Form</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Direct support: <a href="mailto:support@example.com">support@example.com</a></p>
+    </footer>
+
+</body>
+
+</html>
