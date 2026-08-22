@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 - Forms, Semantics, and Accessibility</title>
+</head>
+<body>
+
+  <!-- Semantic Landmark Elements -->
+  <header>
+    <h1>Developer Portfolio Project</h1>
+    <nav>
+      <a href="#about">About</a> |
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About This Build</h2>
+      <p>This layout uses semantic HTML tags instead of unsemantic div wrappers.</p>
+    </section>
+
+    <!-- Accessible Form with Explicit Label Associations -->
+    <section id="contact">
+      <h2>Contact Form</h2>
+      <form action="/submit-form" method="POST">
+        
+        <div>
+          <!-- 'for' attribute must match the input's 'id' -->
+          <label for="user-name">Full Name:</label>
+          <input type="text" id="user-name" name="name" required placeholder="Jane Doe">
+        </div>
+
+        <br>
+
+        <div>
+          <label for="user-email">Email Address:</label>
+          <input type="email" id="user-email" name="email" required placeholder="jane@example.com">
+        </div>
+
+        <br>
+
+        <fieldset>
+          <legend>Subscription Preferences</legend>
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <label for="newsletter">Receive weekly code digests</label>
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Learn in Public Series</p>
+  </footer>
+
+</body>
+</html>
