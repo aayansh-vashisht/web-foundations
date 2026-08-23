@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    background-color: #fafafa;
+}
+
+.search-box {
+    width: 350px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 1rem 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+li:nth-child(odd) {
+    background-color: #f3f4f6;
+}
+
+.empty-msg {
+    color: #9ca3af;
+    font-style: italic;
+}
