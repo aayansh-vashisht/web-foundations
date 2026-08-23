@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Manipulation & Validation</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 500px; }
+    .hidden { display: none; }
+    .error { color: #dc2626; font-size: 0.875rem; }
+    .task-item { display: flex; justify-content: space-between; margin: 0.5rem 0; }
+    .task-completed { text-decoration: line-through; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h1>Interactive Task List</h1>
+
+  <!-- Form with Validation -->
+  <form id="task-form">
+    <div>
+      <input type="text" id="task-input" placeholder="Enter task name..." />
+      <button type="submit" id="add-btn">Add Task</button>
+    </div>
+    <p id="error-message" class="error hidden">Task cannot be empty or under 3 characters.</p>
+  </form>
+
+  <ul id="task-list"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>
