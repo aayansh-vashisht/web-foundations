@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="app-card">
+    <h2>Expense Calculator</h2>
+
+    <form id="expense-form">
+      <input type="text" id="desc" placeholder="Expense description" required />
+      <input type="number" id="amount" placeholder="Amount (₹)" step="0.01" required />
+      <button type="submit" class="btn">Add</button>
+    </form>
+
+    <div class="summary">
+      <strong>Total: </strong>₹<span id="total-amount">0.00</span>
+    </div>
+
+    <ul id="expense-list"></ul>
+  </div>
+</body>
+
+</html>
